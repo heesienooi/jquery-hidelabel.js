@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>hidelabel plugin - Demo</title>
+	<link rel="stylesheet" href="asset/css/bootstrap.min.css">
+	<style>
+		body {
+			width: 600px;
+			margin: 0 auto;
+		}
+
+		form {
+			position: relative;
+			margin: 15px 0;
+			padding: 14px 19px 14px;
+			background-color: white;
+			border: 1px solid #DDD;
+			border-radius: 4px;
+		}
+
+		.hidden-label {
+			position: absolute;
+			display: block;
+			width: auto !important;
+			padding: 4px 8px;
+			margin: 0;
+			color: inherit;
+			cursor: text;
+			pointer-events: none;
+
+			-webkit-transition: color 0.2s linear 0s;
+			-moz-transition: color 0.2s linear 0s;
+			-o-transition: color 0.2s linear 0s;
+			-ms-transition: color 0.2s linear 0s;
+			transition: color 0.2s linear 0s;
+		}
+
+		.hidden-label.el-focused {
+			color: #ccc;
+		}
+
+		.hidden-label.el-populated {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<form class="form-horizontal" id="no-hidelabel">
+		<legend>No hidelabel</legend>
+		<div class="control-group">
+			<label for="email" class="control-label">Email:</label>
+			<div class="controls">
+				<input id="email" type="text" name="email">
+			</div>
+		</div>
+	</form>
+	<form class="form-horizontal" id="no-callback">
+		<legend>hidelabel - no callback</legend>
+		<div class="control-group">
+			<label for="email2" class="control-label">Email:</label>
+			<div class="controls">
+				<input id="email2" type="text" name="email2">
+			</div>
+		</div>
+	</form>
+	<form class="form-horizontal" id="callback-element">
+		<legend>hidelabel - callback return element</legend>
+		<div class="control-group">
+			<label for="email3" class="control-label">Email:</label>
+			<div class="controls">
+				<input id="email3" type="text" name="email3">
+			</div>
+		</div>
+	</form>
+	<form class="form-horizontal" id="callback-value">
+		<legend>hidelabel - callback return value</legend>
+		<div class="control-group">
+			<label for="email4" class="control-label">Email:</label>
+			<div class="controls">
+				<input id="email4" type="text" name="email4">
+			</div>
+		</div>
+	</form>
+
+
+	<script src="asset/js/jquery.min.js"></script>
+	<script src="jquery-hidelabel.js"></script>
+	<script>
+		(function ($) {
+
+			$(function() {
+
+				// example: no callback
+				$('#no-callback input').hidelabel();
+
+				// example: callback return element
+				$('#callback-element input').hidelabel(function(element) {
+					var $this = $(this);
+					return $this.closest('.control-group').find('label')[0];
+				})
+
+				// example: callback return value
+				$('#callback-value input').hidelabel(function(element) {
+					var $this = $(this);
+					return $this.closest('.control-group').find('label').text();
+				})
+
+			})
+			
+		})(jQuery);
+	</script>
+</body>
+</html>
