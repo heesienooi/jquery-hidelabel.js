@@ -4,9 +4,9 @@ jquery-hidelabel.js
 
 ###.hidelabel( [callback(element)] )
 
-`.hidelabel()`has a optional *callback* function that return the label element or value. If a *callback* function has pass to `.hidelabel()`, it will used the return as it's hidden label. Otherwise, it will look for `label` that has `for` that matched with the input `id`.
+`.hidelabel()`has a optional *callback* function that return the label element or value. If a *callback* function has pass to it, it will used the return as it's hidden label. Otherwise, it will look for `label` that has `for` that matched with the input `id`.
 
-Check out the demo.html to see a live example.
+Check out the [demo](http://jsfiddle.net/Q7Ehn/2/) to see a live example.
 
 
 #### Usage
