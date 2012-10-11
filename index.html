@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>jquery-hidelabel.js by Heesien</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>jquery-hidelabel.js</h1>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/Heesien/jquery-hidelabel.js">View the Project on GitHub <small>Heesien/jquery-hidelabel.js</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/Heesien/jquery-hidelabel.js/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Heesien/jquery-hidelabel.js/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Heesien/jquery-hidelabel.js">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>.hidelabel( [callback(element)] )</h3>
+
+<p><code>.hidelabel()</code>has a optional <em>callback</em> function that return the label element or value. If a <em>callback</em> function has pass to <code>.hidelabel()</code>, it will used the return as it's hidden label. Otherwise, it will look for <code>label</code> that has <code>for</code> that matched with the input <code>id</code>.</p>
+
+<p>Check out the demo.html to see a live example.</p>
+
+<h4>Usage</h4>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'input'</span><span class="p">).</span><span class="nx">hidelabel</span><span class="p">();</span>
+</pre></div>
+
+<p>OR</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'input'</span><span class="p">).</span><span class="nx">hidelabel</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">$this</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">),</span>
+        <span class="nx">$label</span> <span class="o">=</span> <span class="nx">$this</span><span class="p">.</span><span class="nx">prev</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nx">$label</span><span class="p">;</span>
+<span class="p">})</span>
+</pre></div>
+
+<p>OR</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'input'</span><span class="p">).</span><span class="nx">hidelabel</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">$this</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">),</span>
+        <span class="nx">text</span> <span class="o">=</span> <span class="nx">$this</span><span class="p">.</span><span class="nx">prev</span><span class="p">().</span><span class="nx">text</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nx">text</span><span class="p">;</span>
+<span class="p">})</span>
+</pre></div>
+
+<h4>Styles</h4>
+
+<div class="highlight"><pre><span class="nc">.hidden-label</span> <span class="p">{</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">4px</span> <span class="m">8px</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span>
+    <span class="k">cursor</span><span class="o">:</span> <span class="k">text</span><span class="p">;</span>
+    <span class="k">pointer</span><span class="o">-</span><span class="n">events</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="k">color</span> <span class="m">0.2s</span> <span class="n">linear</span> <span class="m">0s</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="k">color</span> <span class="m">0.2s</span> <span class="n">linear</span> <span class="m">0s</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="k">color</span> <span class="m">0.2s</span> <span class="n">linear</span> <span class="m">0s</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="k">color</span> <span class="m">0.2s</span> <span class="n">linear</span> <span class="m">0s</span><span class="p">;</span>
+    <span class="n">transition</span><span class="o">:</span> <span class="k">color</span> <span class="m">0.2s</span> <span class="n">linear</span> <span class="m">0s</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.hidden-label.el-focused</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#ccc</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.hidden-label.el-populated</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Heesien">Heesien</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
