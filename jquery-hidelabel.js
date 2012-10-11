@@ -6,7 +6,7 @@
  * Author: Heesien Ooi < heesien.ooi@butterfly.com.au / heesien.ooi@gmail.com >
  * Requirement: jQuery 1.7+
  *
- * Use to hide label for input, ie. text, password, textarea...
+ * Hide label for input, ie. text, password, textarea...
  * Basic usage: $('input').hidelabel();
  */
 
